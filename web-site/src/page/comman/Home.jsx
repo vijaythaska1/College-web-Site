@@ -18,19 +18,19 @@ const Home = () => {
     ];
 
     const courses = [
-        { title: 'Computer Science & AI', icon:<i class="material-symbols-outlined">devices</i>, color: 'indigo' },
+        { title: 'Computer Science & AI', icon: <i class="material-symbols-outlined">devices</i>, color: 'indigo' },
         { title: 'Business & Entrepreneurship', icon: <i class="material-symbols-outlined">devices</i>, color: 'purple' },
-        { title: 'Creative Arts & Design', icon:  <i class="material-symbols-outlined">devices</i>,  color: 'green' },
+        { title: 'Creative Arts & Design', icon: <i class="material-symbols-outlined">devices</i>, color: 'green' },
         { title: 'Environmental Science', icon: <i class="material-symbols-outlined">devices</i>, color: 'green' },
         { title: 'Biomedical Engineering', icon: <i class="material-symbols-outlined">devices</i>, color: 'blue' },
-        { title: 'Global Studies', icon: <i class="material-symbols-outlined">devices</i>,  color: 'green' }
+        { title: 'Global Studies', icon: <i class="material-symbols-outlined">devices</i>, color: 'green' }
     ];
 
     const campusActivities = [
         { title: 'Student Clubs', icon: <i class="material-symbols-outlined">devices</i> },
         { title: 'Sports & Fitness', icon: <i class="material-symbols-outlined">devices</i> },
         { title: 'Arts & Culture', icon: <i class="material-symbols-outlined">devices</i> },
-        { title: 'Research Opportunities', icon: <i class="material-symbols-outlined">devices</i>}
+        { title: 'Research Opportunities', icon: <i class="material-symbols-outlined">devices</i> }
     ];
 
     return (
@@ -191,8 +191,8 @@ const Home = () => {
                                 ))}
                             </div>
                         </div>
-                        
-                       
+
+
                     </motion.div>
                 </div>
             </section>
