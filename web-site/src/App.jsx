@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import Layout from './page/comman/Layout'
+import Layout from './comman/Layout'
+import HomePage from './page/Home';
+
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
@@ -9,8 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={<Layout />} />
-
+        <Route exact element={<Layout />} >
+          <Route path='/' element={<HomePage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
