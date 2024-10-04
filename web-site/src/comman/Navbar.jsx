@@ -9,7 +9,32 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const menuItems = ['Home', 'About', 'Courses', 'Campus Life', 'Contact'];
+  const menuItems = [
+    {
+      title: 'Home',
+      to: "/"
+    },
+    {
+      title: 'About',
+      to: "/AboutUs"
+    },
+    {
+      title: 'Courses',
+      to: "/Courses"
+    },
+    {
+      title: 'Campus Life',
+      to: "CampusLife"
+    },
+    {
+      title: 'Contact',
+      to: "/Contact"
+    }
+    // 'About',
+    // 'Courses',
+    // 'Campus Life',
+    // 'Contact'
+  ];
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
@@ -24,22 +49,25 @@ const Navbar = () => {
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
-                  to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={item.to}
                   className="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out"
                 >
-                  {item}
+                  {item.title}
                 </Link>
               </li>
             ))}
           </ul>
 
           <div className="relative">
-            <select className="p-2 border border-gray-300 rounded-md text-gray-600 focus:outline-none focus:border-indigo-600 transition duration-300 ease-in-out ml-4">
-              <option value="" disabled selected>
+          <select
+              className="p-2 border border-gray-300 rounded-md text-gray-600 focus:outline-none focus:border-indigo-600 transition duration-300 ease-in-out ml-4"
+              defaultValue="" 
+            >
+              <option value="" disabled>
                 My Account
               </option>
-              <option>Student Login</option>
-              <option>Staff Login</option>
+              <option value="1">Student Login</option>
+              <option value="2">Staff Login</option>
             </select>
           </div>
         </nav>
@@ -61,19 +89,22 @@ const Navbar = () => {
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
-                  to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={item.to}
                   className="text-gray-600 hover:text-indigo-600 transition duration-300 ease-in-out font-semibold block py-2"
                 >
-                  {item}
+                  {item.title}
                 </Link>
               </li>
             ))}
-            <select className="p-2 border border-gray-300 rounded-md text-gray-600 focus:outline-none focus:border-indigo-600 transition duration-300 ease-in-out">
-              <option value="" disabled selected>
+              <select
+              className="p-2 border border-gray-300 rounded-md text-gray-600 focus:outline-none focus:border-indigo-600 transition duration-300 ease-in-out"
+              defaultValue="0" 
+            >
+              <option value="0" disabled>
                 My Account
               </option>
-              <option>Student Login</option>
-              <option>Staff Login</option>
+              <option value="1">Student Login</option>
+              <option value="2">Staff Login</option>
             </select>
           </ul>
         </nav>
