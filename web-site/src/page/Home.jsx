@@ -198,13 +198,15 @@ const Home = () => {
                     </div>
                 </div>
             </motion.section>
-            
+
             <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Student Stories
           </h2>
+
+          
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Discover how our students are transforming their dreams into reality
