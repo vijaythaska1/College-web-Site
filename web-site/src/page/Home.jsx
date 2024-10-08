@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Home = () => {
+    const [newsIndex, setNewsIndex] = useState(0);
     // const [scrollY, setScrollY] = useState(0);
 
     // useEffect(() => {
@@ -61,19 +62,25 @@ const Home = () => {
         }
     ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const nextTestimonial = () => {
-        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    };
+    const news = [
+        { title: "New AI Research Center Opens on Campus", date: "May 15, 2023" },
+        { title: "Dream College Ranks #1 in Innovation", date: "April 30, 2023" },
+        { title: "Student Startup Wins National Competition", date: "April 22, 2023" },
+        { title: "Dream College Expands Global Partnership Program", date: "April 15, 2023" },
+        { title: "Annual Tech Symposium Attracts Industry Leaders", date: "April 5, 2023" },
+    ];
 
-    const prevTestimonial = () => {
-        setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    };
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setNewsIndex((prevIndex) => (prevIndex + 1) % news.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100">
             <motion.section
-                className="relative h-screen flex items-center justify-center overflow-hidden"
+                className="relative h-screen flex items-center justify-center overflow-hidden mb-11"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
@@ -109,6 +116,31 @@ const Home = () => {
                         </motion.button>
                     </div>
                 </motion.div>
+            </motion.section>
+
+
+            <motion.section
+                className="py-10 bg-white rounded-xl shadow-xl mb-20"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-bold text-center mb-8 text-indigo-600">Latest News</h2>
+                    <div className="relative overflow-hidden h-96">
+                        <motion.div
+                            className="absolute w-full transition-all duration-500 ease-in-out"
+                            animate={{ y: `-${newsIndex * 100}%` }}
+                        >
+                            {news.map((item, index) => (
+                                <div key={index} className="h-16 flex items-center justify-between">
+                                    <span className="font-semibold text-lg">{item.title}</span>
+                                    <span className="text-sm text-gray-500">{item.date}</span>
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+                </div>
             </motion.section>
 
             <section className="py-20 bg-white">
@@ -200,188 +232,90 @@ const Home = () => {
             </motion.section>
 
             <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Student Stories
-          </h2>
-
-          
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Discover how our students are transforming their dreams into reality
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-2xl"></div>
-              
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 p-1">
-                    <img
-                      src="/api/placeholder/64/64"
-                      alt={testimonial.name}
-                      className="w-full h-full rounded-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                    {index + 1}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-xl text-gray-800 group-hover:text-blue-600 transition-colors">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-gray-500">
-                    {testimonial.program}
-                  </p>
-                  <p className="text-xs text-blue-500 font-semibold">
-                    {testimonial.year}
-                  </p>
-                </div>
-              </div>
-
-              <blockquote className="relative">
-                <svg
-                  className="absolute -top-4 -left-2 w-8 h-8 text-gray-200 transform -rotate-180"
-                  fill="currentColor"
-                  viewBox="0 0 32 32"
-                >
-                  <path d="M10 8c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zM28 8c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z" />
-                </svg>
-                <p className="relative text-gray-600 italic pl-8 leading-relaxed">
-                  {testimonial.quote}
-                </p>
-              </blockquote>
-
-              <div className="flex gap-1 mt-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-16">
-          <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold hover:shadow-lg transition-shadow">
-            View More Stories
-          </button>
-        </div>
-      </div>
-    </section>
-
-
-            {/* <section className="py-20 bg-gray-100">
                 <div className="container mx-auto px-4">
-                    <motion.h2
-                        className="text-4xl font-bold text-center mb-12 text-gray-800"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        What Our Students Say
-                    </motion.h2>
-                    <motion.div
-                        className="max-w-4xl mx-auto"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div className="bg-white p-8 rounded-xl shadow-lg">
-                            <div className="flex items-center mb-6">
-                                <img src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Student" width={64} height={64} className="rounded-full mr-4" />
-                                <div>
-                                    <h4 className="font-semibold text-xl">Priya Sharma</h4>
-                                    <p className="text-gray-600">Computer Science, Class of 2024</p>
-                                </div>
-                            </div>
-                            <p className="text-xl italic mb-4">"Dream College has been a transformative experience for me. The supportive faculty, cutting-edge resources, and diverse student community have helped me grow both academically and personally. I've discovered my passion for AI and have already started working on exciting projects that I believe will make a real impact."</p>
-                            <div className="flex justify-center">
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <span key={star} className="material-icons text-yellow-400"><i className="material-symbols-outlined">star</i></span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="bg-white p-8 rounded-xl shadow-lg">
-                            <div className="flex items-center mb-6">
-                                <img src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Student" width={64} height={64} className="rounded-full mr-4" />
-                                <div>
-                                    <h4 className="font-semibold text-xl">Priya Sharma</h4>
-                                    <p className="text-gray-600">Computer Science, Class of 2024</p>
-                                </div>
-                            </div>
-                            <p className="text-xl italic mb-4">"Dream College has been a transformative experience for me. The supportive faculty, cutting-edge resources, and diverse student community have helped me grow both academically and personally. I've discovered my passion for AI and have already started working on exciting projects that I believe will make a real impact."</p>
-                            <div className="flex justify-center">
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <span key={star} className="material-icons text-yellow-400"><i className="material-symbols-outlined">star</i></span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="bg-white p-8 rounded-xl shadow-lg">
-                            <div className="flex items-center mb-6">
-                                <img src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Student" width={64} height={64} className="rounded-full mr-4" />
-                                <div>
-                                    <h4 className="font-semibold text-xl">Priya Sharma</h4>
-                                    <p className="text-gray-600">Computer Science, Class of 2024</p>
-                                </div>
-                            </div>
-                            <p className="text-xl italic mb-4">"Dream College has been a transformative experience for me. The supportive faculty, cutting-edge resources, and diverse student community have helped me grow both academically and personally. I've discovered my passion for AI and have already started working on exciting projects that I believe will make a real impact."</p>
-                            <div className="flex justify-center">
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <span key={star} className="material-icons text-yellow-400"><i className="material-symbols-outlined">star</i></span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="bg-white p-8 rounded-xl shadow-lg">
-                            <div className="flex items-center mb-6">
-                                <img src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Student" width={64} height={64} className="rounded-full mr-4" />
-                                <div>
-                                    <h4 className="font-semibold text-xl">Priya Sharma</h4>
-                                    <p className="text-gray-600">Computer Science, Class of 2024</p>
-                                </div>
-                            </div>
-                            <p className="text-xl italic mb-4">"Dream College has been a transformative experience for me. The supportive faculty, cutting-edge resources, and diverse student community have helped me grow both academically and personally. I've discovered my passion for AI and have already started working on exciting projects that I believe will make a real impact."</p>
-                            <div className="flex justify-center">
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <span key={star} className="material-icons text-yellow-400"><i className="material-symbols-outlined">star</i></span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="bg-white p-8 rounded-xl shadow-lg">
-                            <div className="flex items-center mb-6">
-                                <img src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Student" width={64} height={64} className="rounded-full mr-4" />
-                                <div>
-                                    <h4 className="font-semibold text-xl">Priya Sharma</h4>
-                                    <p className="text-gray-600">Computer Science, Class of 2024</p>
-                                </div>
-                            </div>
-                            <p className="text-xl italic mb-4">"Dream College has been a transformative experience for me. The supportive faculty, cutting-edge resources, and diverse student community have helped me grow both academically and personally. I've discovered my passion for AI and have already started working on exciting projects that I believe will make a real impact."</p>
-                            <div className="flex justify-center">
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <span key={star} className="material-icons text-yellow-400"><i className="material-symbols-outlined">star</i></span>
-                                ))}
-                            </div>
-                        </div>
+                    <div className="text-center mb-16">
+                        <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            Student Stories
+                        </h2>
 
 
-                    </motion.div>
+                        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
+                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                            Discover how our students are transforming their dreams into reality
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        {testimonials.map((testimonial, index) => (
+                            <div
+                                key={testimonial.id}
+                                className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-2xl"></div>
+
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="relative">
+                                        <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 p-1">
+                                            <img
+                                                src="/api/placeholder/64/64"
+                                                alt={testimonial.name}
+                                                className="w-full h-full rounded-full object-cover"
+                                            />
+                                        </div>
+                                        <div className="absolute -bottom-2 -right-2 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                                            {index + 1}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 className="font-bold text-xl text-gray-800 group-hover:text-blue-600 transition-colors">
+                                            {testimonial.name}
+                                        </h4>
+                                        <p className="text-sm text-gray-500">
+                                            {testimonial.program}
+                                        </p>
+                                        <p className="text-xs text-blue-500 font-semibold">
+                                            {testimonial.year}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <blockquote className="relative">
+                                    <svg
+                                        className="absolute -top-4 -left-2 w-8 h-8 text-gray-200 transform -rotate-180"
+                                        fill="currentColor"
+                                        viewBox="0 0 32 32"
+                                    >
+                                        <path d="M10 8c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zM28 8c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z" />
+                                    </svg>
+                                    <p className="relative text-gray-600 italic pl-8 leading-relaxed">
+                                        {testimonial.quote}
+                                    </p>
+                                </blockquote>
+
+                                <div className="flex gap-1 mt-6">
+                                    {[...Array(testimonial.rating)].map((_, i) => (
+                                        <svg
+                                            key={i}
+                                            className="w-5 h-5 text-yellow-400"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-16">
+                        <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold hover:shadow-lg transition-shadow">
+                            View More Stories
+                        </button>
+                    </div>
                 </div>
-            </section> */}
+            </section>
 
             <motion.section
                 className="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
