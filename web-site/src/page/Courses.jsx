@@ -8,25 +8,25 @@ const CoursesPage = () => {
   const categories = ['All', 'Undergraduate', 'Graduate', 'Online']
 
   const courses = [
-    { id: 1, name: 'Computer Science', category: 'Undergraduate', icon: 'computer', color: 'blue' },
-    { id: 2, name: 'Business Administration', category: 'Undergraduate', icon: 'business', color: 'green' },
-    { id: 3, name: 'Mechanical Engineering', category: 'Undergraduate', icon: 'build', color: 'red' },
-    { id: 4, name: 'Data Science', category: 'Graduate', icon: 'analytics', color: 'purple' },
-    { id: 5, name: 'Digital Marketing', category: 'Graduate', icon: 'campaign', color: 'pink' },
-    { id: 6, name: 'Artificial Intelligence', category: 'Graduate', icon: 'psychology', color: 'indigo' },
-    { id: 7, name: 'Web Development', category: 'Online', icon: 'code', color: 'yellow' },
-    { id: 8, name: 'Graphic Design', category: 'Online', icon: 'brush', color: 'orange' },
-    { id: 9, name: 'Project Management', category: 'Online', icon: 'assignment', color: 'teal' },
+    { id: 1, name: 'Computer Science', category: 'Undergraduate', icon: <i class="material-symbols-outlined">computer</i>, color: 'blue' },
+    { id: 2, name: 'Business Administration', category: 'Undergraduate', icon: <i class="material-symbols-outlined">business</i>, color: 'green' },
+    { id: 3, name: 'Mechanical Engineering', category: 'Undergraduate', icon: <i class="material-symbols-outlined">build</i>, color: 'red' },
+    { id: 4, name: 'Data Science', category: 'Graduate', icon: <i class="material-symbols-outlined">analytics</i>, color: 'purple' },
+    { id: 5, name: 'Digital Marketing', category: 'Graduate', icon: <i class="material-symbols-outlined">campaign</i>, color: 'pink' },
+    { id: 6, name: 'Artificial Intelligence', category: 'Graduate', icon: <i class="material-symbols-outlined">psychology</i>, color: 'indigo' },
+    { id: 7, name: 'Web Development', category: 'Online', icon: <i class="material-symbols-outlined">code</i>, color: 'yellow' },
+    { id: 8, name: 'Graphic Design', category: 'Online', icon: <i class="material-symbols-outlined">brush</i>, color: 'orange' },
+    { id: 9, name: 'Project Management', category: 'Online', icon: <i class="material-symbols-outlined">assignment</i>, color: 'teal' },
   ]
 
-  const filteredCourses = selectedCategory === 'All' 
-    ? courses 
+  const filteredCourses = selectedCategory === 'All'
+    ? courses
     : courses.filter(course => course.category === selectedCategory)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">
       <div className="container mx-auto px-4">
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-5xl font-bold text-center text-indigo-800 mb-12"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ const CoursesPage = () => {
         </motion.h1>
 
         {/* Category Filter */}
-        <motion.div 
+        <motion.div
           className="flex justify-center mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,11 +45,10 @@ const CoursesPage = () => {
           {categories.map((category, index) => (
             <motion.button
               key={category}
-              className={`px-4 py-2 mx-2 rounded-full ${
-                selectedCategory === category 
-                  ? 'bg-indigo-600 text-white' 
-                  : 'bg-white text-indigo-600'
-              } hover:bg-indigo-700 hover:text-white transition duration-300`}
+              className={`px-4 py-2 mx-2 rounded-full ${selectedCategory === category
+                ? 'bg-indigo-600 text-white'
+                : 'bg-white text-indigo-600'
+                } hover:bg-indigo-700 hover:text-white transition duration-300`}
               onClick={() => setSelectedCategory(category)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -60,7 +59,7 @@ const CoursesPage = () => {
         </motion.div>
 
         {/* Courses Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
           animate="visible"
@@ -102,7 +101,9 @@ const CoursesPage = () => {
                       whileHover={{ x: 5 }}
                     >
                       Learn More
-                      <span className="material-icons ml-1">arrow_forward</span>
+                      <i class="material-symbols-outlined ml-1">
+                        arrow_forward
+                      </i>
                     </motion.a>
                   </Link>
                 </div>

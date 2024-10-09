@@ -69,7 +69,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
             >
               <img
-                src="/placeholder.svg"
+                src="https://www.gstatic.com/webp/gallery/1.jpg"
                 alt="Dream College in 1965"
                 width={500}
                 height={300}
@@ -90,12 +90,12 @@ const AboutUs = () => {
           <h2 className="text-3xl font-semibold text-indigo-700 mb-6">Our Achievements</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Top 50 Global Universities", icon: "school" },
-              { title: "100+ Research Patents", icon: "biotech" },
-              { title: "95% Graduate Employment Rate", icon: "work" },
-              { title: "200+ Industry Partnerships", icon: "handshake" },
-              { title: "$100M+ in Research Grants", icon: "paid" },
-              { title: "50+ Nationally Ranked Programs", icon: "star" }
+              { title: "Top 50 Global Universities", icon: <i class="material-symbols-outlined">school</i> },
+              { title: "100+ Research Patents", icon: <i class="material-symbols-outlined">biotech</i> },
+              { title: "95% Graduate Employment Rate", icon: <i class="material-symbols-outlined">work</i> },
+              { title: "200+ Industry Partnerships", icon: <i class="material-symbols-outlined">handshake</i> },
+              { title: "$100M+ in Research Grants", icon: <i class="material-symbols-outlined">paid</i> },
+              { title: "50+ Nationally Ranked Programs", icon: <i class="material-symbols-outlined">star</i> }
             ].map((achievement, index) => (
               <motion.div 
                 key={index}
@@ -123,9 +123,9 @@ const AboutUs = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Dr. Emily Chen", role: "Dean of Computer Science", image: "/placeholder.svg" },
-              { name: "Prof. Michael Johnson", role: "Head of Business School", image: "/placeholder.svg" },
-              { name: "Dr. Sarah Patel", role: "Director of Research", image: "/placeholder.svg" }
+              { name: "Dr. Emily Chen", role: "Dean of Computer Science", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { name: "Prof. Michael Johnson", role: "Head of Business School", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { name: "Dr. Sarah Patel", role: "Director of Research", image: "https://www.gstatic.com/webp/gallery/1.jpg" }
             ].map((faculty, index) => (
               <motion.div 
                 key={index}
@@ -166,12 +166,12 @@ const AboutUs = () => {
             variants={staggerChildren}
           >
             {[
-              { title: "State-of-the-art Libraries", image: "/placeholder.svg" },
-              { title: "Modern Sports Facilities", image: "/placeholder.svg" },
-              { title: "Cultural Events", image: "/placeholder.svg" },
-              { title: "Student Clubs", image: "/placeholder.svg" },
-              { title: "Innovation Labs", image: "/placeholder.svg" },
-              { title: "Green Campus Initiatives", image: "/placeholder.svg" }
+              { title: "State-of-the-art Libraries", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { title: "Modern Sports Facilities", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { title: "Cultural Events", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { title: "Student Clubs", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { title: "Innovation Labs", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
+              { title: "Green Campus Initiatives", image: "https://www.gstatic.com/webp/gallery/1.jpg" }
             ].map((item, index) => (
               <motion.div 
                 key={index}

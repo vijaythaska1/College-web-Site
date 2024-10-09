@@ -16,9 +16,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend
+ 
     console.log('Form submitted:', formData)
-    // Reset form after submission
+    /
     setFormData({ name: '', email: '', subject: '', message: '' })
   }
 
@@ -39,9 +39,7 @@ const Contact = () => {
         >
           Contact Us
         </motion.h1>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <motion.div 
             className="bg-white rounded-xl shadow-lg p-8"
             initial={{ opacity: 0, x: -50 }}

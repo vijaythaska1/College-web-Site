@@ -5,22 +5,22 @@ const CampusLife = () => {
   const [selectedCategory, setSelectedCategory] = useState('All')
 
   const categories = [
-    { id: 'All', icon: 'dashboard' },
-    { id: 'Academics', icon: 'school' },
-    { id: 'Sports', icon: 'sports_soccer' },
-    { id: 'Arts', icon: 'palette' },
-    { id: 'Community', icon: 'people' },
+    { id: 'All', icon:<i class="material-symbols-outlined">dashboard</i>  },
+    { id: 'Academics', icon: <i class="material-symbols-outlined">school</i> },
+    { id: 'Sports', icon:<i class="material-symbols-outlined">sports_soccer</i>  },
+    { id: 'Arts', icon: <i class="material-symbols-outlined">palette</i>  },
+    { id: 'Community', icon: <i class="material-symbols-outlined">people</i> },
   ]
 
   const campusActivities = [
-    { id: 1, title: 'State-of-the-art Libraries', category: 'Academics', image: '/placeholder.svg', description: 'Access to vast knowledge resources and quiet study spaces.' },
-    { id: 2, title: 'Football Stadium', category: 'Sports', image: '/placeholder.svg', description: 'Home to our champion football team and exciting matches.' },
-    { id: 3, title: 'Art Galleries', category: 'Arts', image: '/placeholder.svg', description: 'Showcasing student artworks and visiting exhibitions.' },
-    { id: 4, title: 'Student Clubs', category: 'Community', image: '/placeholder.svg', description: 'Join diverse clubs and make lifelong friendships.' },
-    { id: 5, title: 'Research Labs', category: 'Academics', image: '/placeholder.svg', description: 'Cutting-edge facilities for groundbreaking research.' },
-    { id: 6, title: 'Fitness Center', category: 'Sports', image: '/placeholder.svg', description: 'Stay fit with our modern gym and fitness classes.' },
-    { id: 7, title: 'Theater', category: 'Arts', image: '/placeholder.svg', description: 'Stage for drama productions and cultural events.' },
-    { id: 8, title: 'Community Garden', category: 'Community', image: '/placeholder.svg', description: 'Grow organic produce and learn about sustainability.' },
+    { id: 1, title: 'State-of-the-art Libraries', category: 'Academics', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Access to vast knowledge resources and quiet study spaces.' },
+    { id: 2, title: 'Football Stadium', category: 'Sports', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Home to our champion football team and exciting matches.' },
+    { id: 3, title: 'Art Galleries', category: 'Arts', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Showcasing student artworks and visiting exhibitions.' },
+    { id: 4, title: 'Student Clubs', category: 'Community', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Join diverse clubs and make lifelong friendships.' },
+    { id: 5, title: 'Research Labs', category: 'Academics', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Cutting-edge facilities for groundbreaking research.' },
+    { id: 6, title: 'Fitness Center', category: 'Sports', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Stay fit with our modern gym and fitness classes.' },
+    { id: 7, title: 'Theater', category: 'Arts', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Stage for drama productions and cultural events.' },
+    { id: 8, title: 'Community Garden', category: 'Community', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Grow organic produce and learn about sustainability.' },
   ]
 
   const filteredActivities = selectedCategory === 'All' 
@@ -131,7 +131,7 @@ const CampusLife = () => {
               transition={{ duration: 0.5 }}
             >
               <img
-                src="/placeholder.svg"
+                src="https://www.gstatic.com/webp/gallery/1.jpg"
                 alt="Student"
                 width={128}
                 height={128}
