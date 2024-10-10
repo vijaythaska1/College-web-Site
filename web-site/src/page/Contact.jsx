@@ -9,29 +9,28 @@ const Contact = () => {
     message: ''
   })
 
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-//     const { name, value } = e.target
-//     setFormData(prevState => ({ ...prevState, [name]: value }))
-//   }
+  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //     const { name, value } = e.target
+  //     setFormData(prevState => ({ ...prevState, [name]: value }))
+  //   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
- 
+
     console.log('Form submitted:', formData)
-    /
-    setFormData({ name: '', email: '', subject: '', message: '' })
+      setFormData({ name: '', email: '', subject: '', message: '' })
   }
 
   const contactInfo = [
-    { icon: 'location_on', text: '123 Dream College Way, Education City, ST 12345' },
-    { icon: 'phone', text: '+1 (555) 123-4567' },
-    { icon: 'email', text: 'info@dreamcollege.edu' },
+    { icon: <i class="material-symbols-outlined">location_on</i>, text: '123 Dream College Way, Education City, ST 12345' },
+    { icon: <i class="material-symbols-outlined">phone</i>, text: '+1 (555) 123-4567' },
+    { icon:<i class="material-symbols-outlined">email</i> , text: 'info@dreamcollege.edu' },
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">
       <div className="container mx-auto px-4">
-        <motion.h1 
+        <motion.h1
           className="text-5xl font-bold text-center text-indigo-800 mb-12"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,7 +39,7 @@ const Contact = () => {
           Contact Us
         </motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <motion.div 
+          <motion.div
             className="bg-white rounded-xl shadow-lg p-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -50,12 +49,12 @@ const Contact = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>
-                <motion.input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
+                <motion.input
+                  type="text"
+                  id="name"
+                  name="name"
                   value={formData.name}
-                //   onChange={handleChange}
+                  //   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   whileFocus={{ scale: 1.02 }}
@@ -64,12 +63,12 @@ const Contact = () => {
               </div>
               <div className="mb-4">
                 <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
-                <motion.input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
+                <motion.input
+                  type="email"
+                  id="email"
+                  name="email"
                   value={formData.email}
-                //   onChange={handleChange}
+                  //   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   whileFocus={{ scale: 1.02 }}
@@ -78,12 +77,12 @@ const Contact = () => {
               </div>
               <div className="mb-4">
                 <label htmlFor="subject" className="block text-gray-700 font-semibold mb-2">Subject</label>
-                <motion.input 
-                  type="text" 
-                  id="subject" 
-                  name="subject" 
+                <motion.input
+                  type="text"
+                  id="subject"
+                  name="subject"
                   value={formData.subject}
-                //   onChange={handleChange}
+                  //   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   whileFocus={{ scale: 1.02 }}
@@ -92,11 +91,11 @@ const Contact = () => {
               </div>
               <div className="mb-6">
                 <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">Message</label>
-                <motion.textarea 
-                  id="message" 
-                  name="message" 
+                <motion.textarea
+                  id="message"
+                  name="message"
                   value={formData.message}
-                //   onChange={handleChange}
+                  //   onChange={handleChange}
                   required
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -116,7 +115,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Information */}
-          <motion.div 
+          <motion.div
             className="bg-indigo-800 text-white rounded-xl shadow-lg p-8"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -125,8 +124,8 @@ const Contact = () => {
             <h2 className="text-3xl font-semibold mb-6">Contact Information</h2>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="flex items-start"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -159,7 +158,7 @@ const Contact = () => {
             </div>
 
             {/* Interactive Map */}
-            <motion.div 
+            <motion.div
               className="mt-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -177,7 +176,7 @@ const Contact = () => {
         </div>
 
         {/* FAQ Section */}
-        <motion.div 
+        <motion.div
           className="mt-16 bg-white rounded-xl shadow-lg p-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -190,7 +189,7 @@ const Contact = () => {
               { q: "What financial aid options are available?", a: "We offer various scholarships, grants, and loan options. Our Financial Aid office can provide detailed information." },
               { q: "Are campus tours available?", a: "Yes, we offer both in-person and virtual campus tours. You can schedule a tour through our website." }
             ].map((faq, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="border-b border-gray-200 pb-4"
                 initial={{ opacity: 0, y: 20 }}

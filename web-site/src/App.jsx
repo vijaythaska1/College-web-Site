@@ -7,6 +7,9 @@ import Home from './page/Home';
 
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import VirtualTour from './page/VirtualTour';
+import ScheduleCampusVisit from './page/ScheduleCampusVisit';
+import SingleCourseView from './page/SingleCourseView';
 
 
 function App() {
@@ -21,8 +24,9 @@ function App() {
           <Route path='/Courses' element={<Courses />} />
           <Route path='/CampusLife' element={<CampusLife />} />
           <Route path='/Contact' element={<Contact />} />
-
-
+          <Route path='/VirtualTour' element={<VirtualTour />} />
+          <Route path='/ScheduleCampusVisit' element={<ScheduleCampusVisit />} />
+          <Route path='/SingleCourseView' element={<SingleCourseView />} />
 
 
         </Route>

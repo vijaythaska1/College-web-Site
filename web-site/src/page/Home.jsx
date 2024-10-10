@@ -68,12 +68,22 @@ const Home = () => {
         { title: "Student Startup Wins National Competition", date: "April 22, 2023" },
         { title: "Dream College Expands Global Partnership Program", date: "April 15, 2023" },
         { title: "Annual Tech Symposium Attracts Industry Leaders", date: "April 5, 2023" },
+        { title: "New AI Research Center Opens on Campus", date: "May 15, 2023" },
+        { title: "Dream College Ranks #1 in Innovation", date: "April 30, 2023" },
+        { title: "Student Startup Wins National Competition", date: "April 22, 2023" },
+        { title: "Dream College Expands Global Partnership Program", date: "April 15, 2023" },
+        { title: "Annual Tech Symposium Attracts Industry Leaders", date: "April 5, 2023" },
+        { title: "New AI Research Center Opens on Campus", date: "May 15, 2023" },
+        { title: "Dream College Ranks #1 in Innovation", date: "April 30, 2023" },
+        { title: "Student Startup Wins National Competition", date: "April 22, 2023" },
+        { title: "Dream College Expands Global Partnership Program", date: "April 15, 2023" },
+        { title: "Annual Tech Symposium Attracts Industry Leaders", date: "April 5, 2023" },
     ];
 
     useEffect(() => {
         const interval = setInterval(() => {
             setNewsIndex((prevIndex) => (prevIndex + 1) % news.length);
-        }, 5000);
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 
@@ -105,14 +115,14 @@ const Home = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Explore Programs
+                            <Link to={"/Courses"}>Explore Programs</Link>
                         </motion.button>
                         <motion.button
                             className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-indigo-600 transition duration-300"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Virtual Tour
+                            <Link to={"/VirtualTour"}>Virtual Tour</Link>
                         </motion.button>
                     </div>
                 </motion.div>
@@ -196,7 +206,7 @@ const Home = () => {
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{course.title}</h3>
                                 <p className="text-gray-600 mb-4">Explore innovative curricula and hands-on learning experiences in {course.title.toLowerCase()}.</p>
                                 <Link href="#" className={`text-${course.color}-600 hover:text-${course.color}-700 font-semibold flex items-center`}>
-                                    Learn More <i className="material-symbols-outlined">arrow_forward</i>
+                                 <Link to={"/SingleCourseView"}>Learn More</Link>    <i className="material-symbols-outlined">arrow_forward</i>
                                 </Link>
                             </motion.div>
                         ))}
