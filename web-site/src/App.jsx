@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import Layout from './comman/Layout'
 import AboutUs from './page/AboutUs';
 import CampusLife from './page/CampusLife';
@@ -13,7 +15,7 @@ import SingleCourseView from './page/SingleCourseView';
 
 
 function App() {
-
+ 
 
   return (
     <BrowserRouter>

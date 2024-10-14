@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -15,7 +15,11 @@ const AboutUs = () => {
         staggerChildren: 0.1
       }
     }
-  }
+  };
+
+  useEffect(()=>{
+scrollTo(0,0);
+  },[]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">

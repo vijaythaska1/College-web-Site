@@ -12,7 +12,7 @@ const Navbar = () => {
   const menuItems = [
     {
       title: 'Home',
-      to: "/"
+      to: "/",
     },
     {
       title: 'About',
@@ -43,7 +43,6 @@ const Navbar = () => {
           <img src={logo} alt="IPS Gangoh Logo" className="h-12 w-12 object-cover" />
           <h1 className="text-3xl font-bold text-gray-600">I.P.S Collage</h1>
         </div>
-
         <nav className="hidden md:flex items-center space-x-6">
           <ul className="flex space-x-6 text-lg font-medium">
             {menuItems.map((item, index) => (
@@ -72,7 +71,6 @@ const Navbar = () => {
           </div>
         </nav>
 
-
         <button
           onClick={toggleMenu}
           className="md:hidden text-gray-600 focus:outline-none"
@@ -94,6 +92,7 @@ const Navbar = () => {
                 >
                   {item.title}
                 </Link>
+
               </li>
             ))}
               <select

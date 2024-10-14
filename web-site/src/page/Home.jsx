@@ -87,8 +87,12 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
+    useEffect(() => {
+        scrollTo(0, 0);
+    }, []);
+
     return (
-        <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100">
+        <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100" id='HomePage'>
             <motion.section
                 className="relative h-screen flex items-center justify-center overflow-hidden mb-11"
                 initial={{ opacity: 0 }}
@@ -206,7 +210,7 @@ const Home = () => {
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{course.title}</h3>
                                 <p className="text-gray-600 mb-4">Explore innovative curricula and hands-on learning experiences in {course.title.toLowerCase()}.</p>
                                 <Link href="#" className={`text-${course.color}-600 hover:text-${course.color}-700 font-semibold flex items-center`}>
-                                 <Link to={"/SingleCourseView"}>Learn More</Link>    <i className="material-symbols-outlined">arrow_forward</i>
+                                    <Link to={"/SingleCourseView"}>Learn More</Link>    <i className="material-symbols-outlined">arrow_forward</i>
                                 </Link>
                             </motion.div>
                         ))}
