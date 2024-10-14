@@ -99,13 +99,14 @@ const Home = () => {
                     <video alt="College campus" className="w-full h-full object-cover" autoPlay muted loop >
                         <source src="https://bijnicollege.ac.in/wp-content/uploads/2024/06/Bijni-Video-1.mp4" type="video/mp4" />
                     </video>
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-900 to-purple-900 opacity-70"></div>
+                    <div className="absolute inset-0  from-indigo-900 to-purple-900 opacity-70"></div>
                 </div>
                 <motion.div
                     className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
+                    
                 >
                     <h2 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">Unlock Your Potential at Dream College</h2>
                     <p className="text-xl md:text-2xl mb-8">Empowering minds, inspiring innovation, and shaping future leaders</p>
@@ -206,7 +207,7 @@ const Home = () => {
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{course.title}</h3>
                                 <p className="text-gray-600 mb-4">Explore innovative curricula and hands-on learning experiences in {course.title.toLowerCase()}.</p>
                                 <Link href="#" className={`text-${course.color}-600 hover:text-${course.color}-700 font-semibold flex items-center`}>
-                                 <Link to={"/SingleCourseView"}>Learn More</Link>    <i className="material-symbols-outlined">arrow_forward</i>
+                                    <Link to={"/SingleCourseView"}>Learn More</Link>    <i className="material-symbols-outlined">arrow_forward</i>
                                 </Link>
                             </motion.div>
                         ))}
