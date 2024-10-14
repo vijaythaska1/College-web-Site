@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom';
 
@@ -22,6 +22,10 @@ const CoursesPage = () => {
   const filteredCourses = selectedCategory === 'All'
     ? courses
     : courses.filter(course => course.category === selectedCategory)
+
+    useEffect(() => {
+      scrollTo(0, 0);
+    }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">

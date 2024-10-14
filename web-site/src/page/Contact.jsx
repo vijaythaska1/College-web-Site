@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const Contact = () => {
@@ -26,6 +26,9 @@ const Contact = () => {
     { icon: <i class="material-symbols-outlined">phone</i>, text: '+1 (555) 123-4567' },
     { icon:<i class="material-symbols-outlined">email</i> , text: 'info@dreamcollege.edu' },
   ]
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">

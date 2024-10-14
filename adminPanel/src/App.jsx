@@ -1,10 +1,18 @@
+import Layout from "./comman/Layout";
 import LoginPage from "./page/LoginPage"
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <>
-  <LoginPage />
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* <Route index element={<Home />} />
+        <Route path="blogs" element={<Blogs />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<NoPage />} /> */}
+   </Route>
+    </Routes>
+  </BrowserRouter>
   )
 }
 

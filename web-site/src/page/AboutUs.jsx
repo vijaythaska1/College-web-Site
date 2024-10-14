@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-// import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const AboutUs = () => {
@@ -17,14 +16,14 @@ const AboutUs = () => {
     }
   };
 
-  useEffect(()=>{
-scrollTo(0,0);
-  },[]);
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">
       <div className="container mx-auto px-4">
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-5xl font-bold text-center text-indigo-800 mb-12"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +33,7 @@ scrollTo(0,0);
         </motion.h1>
 
         {/* Mission Statement */}
-        <motion.section 
+        <motion.section
           className="bg-white rounded-lg shadow-lg p-8 mb-12"
           variants={fadeInUp}
           initial="initial"
@@ -48,7 +47,7 @@ scrollTo(0,0);
         </motion.section>
 
         {/* History */}
-        <motion.section 
+        <motion.section
           className="bg-white rounded-lg shadow-lg p-8 mb-12"
           variants={fadeInUp}
           initial="initial"
@@ -65,7 +64,7 @@ scrollTo(0,0);
                 Our journey has been marked by continuous growth, groundbreaking research, and a commitment to preparing students for the challenges of tomorrow.
               </p>
             </div>
-            <motion.div 
+            <motion.div
               className="md:w-1/2"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -84,7 +83,7 @@ scrollTo(0,0);
         </motion.section>
 
         {/* Achievements */}
-        <motion.section 
+        <motion.section
           className="bg-white rounded-lg shadow-lg p-8 mb-12"
           variants={staggerChildren}
           initial="initial"
@@ -101,7 +100,7 @@ scrollTo(0,0);
               { title: "$100M+ in Research Grants", icon: <i class="material-symbols-outlined">paid</i> },
               { title: "50+ Nationally Ranked Programs", icon: <i class="material-symbols-outlined">star</i> }
             ].map((achievement, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="bg-indigo-50 rounded-lg p-6 flex items-center"
                 variants={fadeInUp}
@@ -114,7 +113,7 @@ scrollTo(0,0);
         </motion.section>
 
         {/* Faculty */}
-        <motion.section 
+        <motion.section
           className="bg-white rounded-lg shadow-lg p-8 mb-12"
           variants={fadeInUp}
           initial="initial"
@@ -131,7 +130,7 @@ scrollTo(0,0);
               { name: "Prof. Michael Johnson", role: "Head of Business School", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
               { name: "Dr. Sarah Patel", role: "Director of Research", image: "https://www.gstatic.com/webp/gallery/1.jpg" }
             ].map((faculty, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -154,7 +153,7 @@ scrollTo(0,0);
         </motion.section>
 
         {/* Campus Life */}
-        <motion.section 
+        <motion.section
           className="bg-white rounded-lg shadow-lg p-8"
           variants={fadeInUp}
           initial="initial"
@@ -165,7 +164,7 @@ scrollTo(0,0);
           <p className="text-lg text-gray-700 mb-6">
             At Dream College, we believe in providing a holistic educational experience. Our vibrant campus life offers numerous opportunities for personal growth, cultural exchange, and unforgettable memories.
           </p>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
             variants={staggerChildren}
           >
@@ -177,7 +176,7 @@ scrollTo(0,0);
               { title: "Innovation Labs", image: "https://www.gstatic.com/webp/gallery/1.jpg" },
               { title: "Green Campus Initiatives", image: "https://www.gstatic.com/webp/gallery/1.jpg" }
             ].map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="relative overflow-hidden rounded-lg shadow-md"
                 variants={fadeInUp}

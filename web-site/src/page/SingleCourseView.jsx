@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom';
 
@@ -35,6 +35,10 @@ const SingleCourseView = () => {
       { title: "Think Python: How to Think Like a Computer Scientist", authors: "Allen B. Downey", link: "#" }
     ]
   }
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">

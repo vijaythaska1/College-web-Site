@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
 
@@ -15,6 +15,10 @@ const ScheduleCampusVisit = () => {
     // Handle form submission here
     console.log('Form submitted:', { date, visitType, groupSize, name, email, interests })
   }
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">

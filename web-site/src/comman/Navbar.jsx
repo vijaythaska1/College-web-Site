@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -47,20 +46,24 @@ const Navbar = () => {
           <ul className="flex space-x-6 text-lg font-medium">
             {menuItems.map((item, index) => (
               <li key={index}>
-                <Link
+                <NavLink
                   to={item.to}
-                  className="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-indigo-600 font-semibold transition duration-300 ease-in-out"
+                      : "text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out"
+                  }
                 >
                   {item.title}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
 
           <div className="relative">
-          <select
+            <select
               className="p-2 border border-gray-300 rounded-md text-gray-600 focus:outline-none focus:border-indigo-600 transition duration-300 ease-in-out ml-4"
-              defaultValue="" 
+              defaultValue=""
             >
               <option value="" disabled>
                 My Account
@@ -86,18 +89,22 @@ const Navbar = () => {
           <ul className="flex flex-col space-y-2 p-4">
             {menuItems.map((item, index) => (
               <li key={index}>
-                <Link
+                <NavLink
                   to={item.to}
-                  className="text-gray-600 hover:text-indigo-600 transition duration-300 ease-in-out font-semibold block py-2"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-indigo-600 font-semibold transition duration-300 ease-in-out"
+                      : "text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out"
+                  }
                 >
                   {item.title}
-                </Link>
+                </NavLink>
 
               </li>
             ))}
-              <select
+            <select
               className="p-2 border border-gray-300 rounded-md text-gray-600 focus:outline-none focus:border-indigo-600 transition duration-300 ease-in-out"
-              defaultValue="0" 
+              defaultValue="0"
             >
               <option value="0" disabled>
                 My Account
