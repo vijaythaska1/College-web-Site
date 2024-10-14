@@ -5,10 +5,10 @@ const CampusLife = () => {
   const [selectedCategory, setSelectedCategory] = useState('All')
 
   const categories = [
-    { id: 'All', icon:<i class="material-symbols-outlined">dashboard</i>  },
+    { id: 'All', icon: <i class="material-symbols-outlined">dashboard</i> },
     { id: 'Academics', icon: <i class="material-symbols-outlined">school</i> },
-    { id: 'Sports', icon:<i class="material-symbols-outlined">sports_soccer</i>  },
-    { id: 'Arts', icon: <i class="material-symbols-outlined">palette</i>  },
+    { id: 'Sports', icon: <i class="material-symbols-outlined">sports_soccer</i> },
+    { id: 'Arts', icon: <i class="material-symbols-outlined">palette</i> },
     { id: 'Community', icon: <i class="material-symbols-outlined">people</i> },
   ]
 
@@ -23,14 +23,14 @@ const CampusLife = () => {
     { id: 8, title: 'Community Garden', category: 'Community', image: 'https://www.gstatic.com/webp/gallery/1.jpg', description: 'Grow organic produce and learn about sustainability.' },
   ]
 
-  const filteredActivities = selectedCategory === 'All' 
-    ? campusActivities 
+  const filteredActivities = selectedCategory === 'All'
+    ? campusActivities
     : campusActivities.filter(activity => activity.category === selectedCategory)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-100 py-16">
       <div className="container mx-auto px-4">
-        <motion.h1 
+        <motion.h1
           className="text-5xl font-bold text-center text-indigo-800 mb-12"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const CampusLife = () => {
         </motion.h1>
 
         {/* Interactive 3D Rotating Globe */}
-        <motion.div 
+        <motion.div
           className="w-64 h-64 mx-auto mb-12"
           initial={{ rotateY: 0 }}
           animate={{ rotateY: 360 }}
@@ -52,7 +52,7 @@ const CampusLife = () => {
         </motion.div>
 
         {/* Category Filter */}
-        <motion.div 
+        <motion.div
           className="flex justify-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,11 +61,10 @@ const CampusLife = () => {
           {categories.map((category) => (
             <motion.button
               key={category.id}
-              className={`px-6 py-3 mx-2 rounded-full flex items-center ${
-                selectedCategory === category.id 
-                  ? 'bg-indigo-600 text-white' 
-                  : 'bg-white text-indigo-600'
-              } hover:bg-indigo-700 hover:text-white transition duration-300`}
+              className={`px-6 py-3 mx-2 rounded-full flex items-center ${selectedCategory === category.id
+                ? 'bg-indigo-600 text-white'
+                : 'bg-white text-indigo-600'
+                } hover:bg-indigo-700 hover:text-white transition duration-300`}
               onClick={() => setSelectedCategory(category.id)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -77,7 +76,7 @@ const CampusLife = () => {
         </motion.div>
 
         {/* Campus Activities Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           layout
         >
@@ -92,7 +91,7 @@ const CampusLife = () => {
                 transition={{ duration: 0.5 }}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300"
               >
-                <motion.div 
+                <motion.div
                   className="relative h-48"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
@@ -125,7 +124,7 @@ const CampusLife = () => {
         >
           <h2 className="text-3xl font-bold text-indigo-800 mb-6 text-center">Student Spotlight</h2>
           <div className="flex flex-col md:flex-row items-center">
-            <motion.div 
+            <motion.div
               className="w-32 h-32 rounded-full overflow-hidden mb-4 md:mb-0 md:mr-8"
               whileHover={{ scale: 1.1, rotate: 360 }}
               transition={{ duration: 0.5 }}
