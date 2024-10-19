@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
@@ -77,7 +78,7 @@ const LoginPage = () => {
               </div>
               <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">Forgot password?</a>
             </div>
-            <button
+            <button   onClick={() => navigate("/Dashboard")}
               type="submit"
               className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200"
             >
