@@ -1,17 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
-import Sidebar from './Sidbar'
-import { Outlet } from 'react-router-dom'
+import Sidebar from './Sidebar'
 import Footer from './Footer'
 
-function Layout() {
+
+
+const Layout =({ children }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
   return (
-    <>
-    <Navbar/>
-    <Sidebar/>
-    <Outlet/>
-    <Footer/>
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex flex-1">
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
+        <div className="md:hidden">
+          {isSidebarOpen && <Sidebar />}
+        </div>
+        <main className="flex-1 p-4">
+          <button 
+            className="md:hidden mb-4 p-2 bg-gray-800 text-white rounded"
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          >
+            {isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
+          </button>
+          {children}
+        </main>
+      </div>
+      <Footer />
+    </div>
   )
 }
 
